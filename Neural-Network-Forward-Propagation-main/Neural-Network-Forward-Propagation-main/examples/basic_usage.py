@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-
 """
 Basic usage example for the neural network forward propagation implementation.
 """
+
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from nn_forward_prop import NeuralNetwork
 
+def format_output(values):
+    """Format numpy float values to clean 4-digit floats"""
+    return [float(f"{x:.4f}") for x in values]
 
 def main():
     # Create a network with:
@@ -22,17 +25,25 @@ def main():
     # Forward propagate
     predictions, hidden_outputs = network.forward_propagate(inputs)
     
-    # Print results
+    # Print results with clean formatting
     print("\nBasic Neural Network Example")
     print("="*40)
     print(f"Network architecture: {network.layers}")
     print(f"Input values: {inputs}\n")
     
     for i, output in enumerate(hidden_outputs):
-        print(f"Hidden layer {i+1} outputs: {[round(x, 4) for x in output]}")
+        print(f"Hidden layer {i+1} outputs: {format_output(output)}")
     
-    print(f"\nFinal output predictions: {[round(x, 4) for x in predictions]}")
-    print("="*40 + "\n")
+    print(f"\nFinal output predictions: {format_output(predictions)}")
+    print("="*40)
+    
+    # Print weights and biases for reference
+    print("\nNetwork Parameters:")
+    for i, (weight, bias) in enumerate(zip(network.weights, network.biases)):
+        print(f"\nLayer {i+1} to {i+2}:")
+        print(f"Weight matrix ({weight.shape[0]}x{weight.shape[1]}):")
+        print(weight.round(4))
+        print(f"Bias vector: {bias.round(4)}")
 
 if __name__ == "__main__":
     main()
