@@ -1,6 +1,6 @@
 # Neural Network Forward Propagation with Visualization
 
-![Enhanced Network Visualization](examples/organized_network.png)
+![Enhanced Network Visualization](Neural-Network-Forward-Propagation-main/organized_network.png)
 
 A Python implementation of neural network forward propagation with comprehensive visualization capabilities.
 
