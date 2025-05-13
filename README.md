@@ -31,12 +31,13 @@ cd Neural-Network-Forward-Propagation
 ```
 
 Install dependencies:
-
+```bash
 pip install -r requirements.txt
-
+```
 
 Basic Usage - python
  
+```python
 from neural_network.nn_forward_prop import NeuralNetwork
 
 # Create a network
@@ -46,10 +47,13 @@ network = NeuralNetwork([3, 4, 2])  # 3 inputs, 4 hidden neurons, 2 outputs
 inputs = [0.5, 0.3, 0.8]
 output, _ = network.forward_propagate(inputs)
 print("Network output:", output)
+```
+
 Visualization Example
 Run the enhanced visualization:
-
+```bash
 python examples/network_visualization.py
+```
 This will generate:
 
 An interactive matplotlib window
